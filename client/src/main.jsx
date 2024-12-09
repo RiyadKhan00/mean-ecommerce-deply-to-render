@@ -9,7 +9,7 @@ import { Toaster } from "./components/ui/toaster";
 import axios from "axios";
 
 // axios.defaults.baseURL = '/api/';
-axios.defaults.baseURL = "https://ecommerce-one-backend.onrender.com/";
+axios.defaults.baseURL = "https://ecommerce-one-backend.onrender.com";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
