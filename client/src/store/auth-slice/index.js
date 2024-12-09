@@ -10,7 +10,7 @@ const initialState = {
 export const registerUser = createAsyncThunk(
   "/auth/register",
   async (formData) => {
-    const response = await axios.post("api/auth/register", formData, {
+    const response = await axios.post("/api/auth/register", formData, {
       withCredentials: true,
     });
 
@@ -19,7 +19,7 @@ export const registerUser = createAsyncThunk(
 );
 
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
-  const response = await axios.post("api/auth/login", formData, {
+  const response = await axios.post("/api/auth/login", formData, {
     withCredentials: true,
   });
 
@@ -28,7 +28,7 @@ export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
 
 export const logoutUser = createAsyncThunk("/auth/logout", async () => {
   const response = await axios.post(
-    "api/auth/logout",
+    "/api/auth/logout",
     {},
     {
       withCredentials: true,
@@ -39,7 +39,7 @@ export const logoutUser = createAsyncThunk("/auth/logout", async () => {
 });
 
 export const checkAuth = createAsyncThunk("/auth/checkAuth", async () => {
-  const response = await axios.get("api/auth/check-auth", {
+  const response = await axios.get("/api/auth/check-auth", {
     withCredentials: true,
     headers: {
       "Cache-Control": "no-store, no-cache, must-revalidate , proxy-revalidate",

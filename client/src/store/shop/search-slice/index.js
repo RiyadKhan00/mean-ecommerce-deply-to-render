@@ -9,7 +9,7 @@ const initialState = {
 export const getSearchResults = createAsyncThunk(
   "/auth/getSearchResults",
   async (keyword) => {
-    const response = await axios.get(`api/shop/search/${keyword}`);
+    const response = await axios.get(`/api/shop/search/${keyword}`);
 
     return response.data;
   }
