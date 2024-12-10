@@ -10,11 +10,7 @@ const initialState = {
 export const addNewProduct = createAsyncThunk(
   "/products/addnewProduct",
   async (formData) => {
-    const result = await axios.post("/api/admin/products/add", formData, {
-      headers: {
-        " Content-Type": "application/json",
-      },
-    });
+    const result = await axios.post("/api/admin/products/add", formData);
 
     return result.data;
   }
@@ -32,11 +28,7 @@ export const fetchAllProducts = createAsyncThunk(
 export const editProduct = createAsyncThunk(
   "/products/editProduct",
   async ({ id, values }) => {
-    const result = await axios.put(`/api/admin/products/edit/${id}`, values, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const result = await axios.put(`/api/admin/products/edit/${id}`, values);
 
     return result.data;
   }

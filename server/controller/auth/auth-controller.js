@@ -72,7 +72,7 @@ const loginUser = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    res.cookie("token", token, { httpOnly: true, secure: false }).json({
+    res.cookie("token", token).json({
       success: true,
       message: "logged in successfully",
       user: {
@@ -104,6 +104,7 @@ const logoutUser = (req, res) => {
 
 const authMIddleware = async (req, res, next) => {
   const token = req.cookies.token;
+
   if (!token)
     return res.status(401).json({
       success: false,
