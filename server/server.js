@@ -18,7 +18,19 @@ const PORT = process.env.PORT || 6000;
 // create Data base connection
 require("./db");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://ecommerce-one.onrender.com",
+      "https://effortless-snickerdoodle-a55ed6.netlify.app",
+    ],
+    methods: ["Get", "POST", "DELETE", "PUT"],
+    allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
+    credentials: true,
+  })
+);
+
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
