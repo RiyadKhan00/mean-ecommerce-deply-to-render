@@ -72,9 +72,21 @@ const loginUser = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    res.cookie("token", token, { httpOnly: true, secure: true }).json({
+    // res.cookie("token", token, { httpOnly: true, secure: true }).json({
+    //   success: true,
+    //   message: "logged in successfully",
+    //   user: {
+    //     email: checkUser.email,
+    //     role: checkUser.role,
+    //     id: checkUser._id,
+    //     userName: checkUser.userName,
+    //   },
+    // });
+
+    res.status(200).json({
       success: true,
       message: "logged in successfully",
+      token,
       user: {
         email: checkUser.email,
         role: checkUser.role,
@@ -102,8 +114,30 @@ const logoutUser = (req, res) => {
 
 //auth middleware
 
+// const authMIddleware = async (req, res, next) => {
+//   const token = req.cookies.token;
+
+//   if (!token)
+//     return res.status(401).json({
+//       success: false,
+//       message: "Unathorised user!",
+//     });
+
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECREATE_KEY);
+//     req.user = decoded;
+//     next();
+//   } catch (error) {
+//     res.status(401).json({
+//       success: false,
+//       message: "Unathorised user!",
+//     });
+//   }
+// };
+
 const authMIddleware = async (req, res, next) => {
-  const token = req.cookies.token;
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
 
   if (!token)
     return res.status(401).json({

@@ -159,8 +159,8 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
             <h2 className="text-xl font-bold mb-4">Reviwes</h2>
             <div className="grid gap-6">
               {reviews && reviews.length > 0 ? (
-                reviews.map((reviewItem) => (
-                  <div className="flex gap-4">
+                reviews.map((reviewItem, index) => (
+                  <div className="flex gap-4" key={index}>
                     <Avatar className="w-10 h-10 border">
                       <AvatarFallback>
                         {reviewItem.userName[0].toUpperCase()}
