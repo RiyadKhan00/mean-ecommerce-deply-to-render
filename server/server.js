@@ -20,8 +20,10 @@ require("./db");
 
 app.use(
   cors({
+    origin: process.env.CLIENT_BASE_URL,
+    methods: ["Get", "POST", "DELETE", "PUT"],
+    allowedHeaders: ["Content-Type", "Authorization", "Cache-Controll"],
     credentials: true,
-    origin: true,
   })
 );
 

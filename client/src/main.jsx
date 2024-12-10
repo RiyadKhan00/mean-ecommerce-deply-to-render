@@ -6,9 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { Toaster } from "./components/ui/toaster";
-import axios from "axios";
-
-axios.defaults.baseURL = " http://localhost:5000";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>

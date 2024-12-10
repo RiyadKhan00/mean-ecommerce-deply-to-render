@@ -10,28 +10,43 @@ const initialState = {
 export const registerUser = createAsyncThunk(
   "/auth/register",
   async (formData) => {
-    const response = await axios.post("/api/auth/register", formData);
+    const response = await axios.post(
+      `${import.meta.env.VITE_API_URL}/api/auth/register`,
+      formData
+    );
 
     return response.data;
   }
 );
 
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
-  const response = await axios.post("/api/auth/login", formData);
+  const response = await axios.post(
+    `${import.meta.env.VITE_API_URL}/api/auth/login`,
+    formData,
+    {
+      withCredentials: true,
+    }
+  );
 
   return response.data;
 });
 
 export const logoutUser = createAsyncThunk("/auth/logout", async () => {
-  const response = await axios.post("/api/auth/logout", {});
+  const response = await axios.post(
+    `${import.meta.env.VITE_API_URL}/api/auth/logout`,
+    {}
+  );
 
   return response.data;
 });
 
 export const checkAuth = createAsyncThunk("/auth/checkAuth", async () => {
-  const response = await axios.get("/api/auth/check-auth", {
-    withCredentials: true,
-  });
+  const response = await axios.get(
+    `${import.meta.env.VITE_API_URL}/api/auth/check-auth`,
+    {
+      withCredentials: true,
+    }
+  );
 
   return response.data;
 });
