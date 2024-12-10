@@ -20,10 +20,6 @@ require("./db");
 
 app.use(
   cors({
-    // origin: "http://localhost:5173",
-    // origin: "*",
-    // methods: ["Get", "POST", "DELETE", "PUT"],
-    // allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
     credentials: true,
     origin: true,
   })
