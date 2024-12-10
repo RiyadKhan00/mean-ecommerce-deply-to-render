@@ -35,11 +35,14 @@ const AuthLogin = () => {
   });
 
   return (
-    <div className="w-50">
+    <div className="w-[80%] md:w-[25rem] lg:w-[35rem]  ">
       <div className="text-center">
-        <h2 className="fs-1">Sing in to your account</h2>
-        <p>
-          Don't have an account <Link to="/auth/register">Register</Link>
+        <h2 className="fs-1 ">Sing in to your account</h2>
+        <p className="mb-3 mt-2">
+          Don't have an account{" "}
+          <Link to="/auth/register" className="text-sky-500 hover:underline">
+            Register
+          </Link>
         </p>
       </div>
       <Form onSubmit={handleSubmit}>

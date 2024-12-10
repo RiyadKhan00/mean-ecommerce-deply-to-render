@@ -38,11 +38,14 @@ const AuthRegister = () => {
   });
 
   return (
-    <div className="w-50">
+    <div className="w-[80%] md:w-[25rem] lg:w-[34rem]">
       <div className="text-center">
         <h2 className="fs-1">Create new account</h2>
-        <p>
-          Already have an account <Link to="/auth/login">Login</Link>
+        <p className="mb-3 mt-2">
+          Already have an account{" "}
+          <Link to="/auth/login" className="text-sky-500 hover:underline">
+            Login
+          </Link>
         </p>
       </div>
       <Form onSubmit={handleSubmit}>
