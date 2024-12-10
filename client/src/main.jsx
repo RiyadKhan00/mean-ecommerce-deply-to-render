@@ -8,7 +8,7 @@ import store from "./store/store.js";
 import { Toaster } from "./components/ui/toaster";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://ecommerce-one-backend.onrender.com";
+axios.defaults.baseURL = " http://localhost:5000";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
